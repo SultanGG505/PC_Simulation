@@ -31,6 +31,13 @@ def cramer(arrs):
     b = round((det2 / mainDet), 2)
     print(a)
     print(b)
+    return a, b
+
+
+def plot(ab, data):
+    plt.plot(data[0],data[1], label = "aboba")
+    plt.legend()
+    plt.show()
 
 data = []
 with open("input.txt") as f:
@@ -38,4 +45,6 @@ with open("input.txt") as f:
         data.append([float(x) for x in line.split()])
 print(data)
 
-cramer(epsSys(data[0], data[1]))
+plot(cramer(epsSys(data[0], data[1])),data)
+
+# print(len(data[0]))
