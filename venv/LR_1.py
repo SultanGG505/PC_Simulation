@@ -2,9 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-plt.plot([1,2,3,4])
-plt.show()
-
 def epsSys(arrX, arrY):
     sumX, sumY, sumX2, sumXY = 0, 0, 0, 0
     for i in range(0, len(arrX)):
@@ -35,5 +32,10 @@ def cramer(arrs):
     print(a)
     print(b)
 
+data = []
+with open("input.txt") as f:
+    for line in f:
+        data.append([float(x) for x in line.split()])
+print(data)
 
-cramer(epsSys([1, 2, 3, 4, 5, 6], [1.0, 1.5, 3.0, 4.5, 7.0, 8.5]))
+cramer(epsSys(data[0], data[1]))
