@@ -1,5 +1,4 @@
 import math
-
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -13,6 +12,22 @@ def plot(data, MSQ_arr, STEP_arr, POK_arr, KVADR_arr):
     plt.grid()
     plt.legend()
     plt.show()
+
+
+def best(data, MSQ_arr, STEP_arr, POK_arr, KVADR_arr):
+    msq, step, pok, kvadr = 0, 0, 0, 0
+    for i in range(0, len(data[0])):
+        msq += (data[1][i] - MSQ_arr[i]) * (data[1][i] - MSQ_arr[i])
+        step += (data[1][i] - STEP_arr[i]) * (data[1][i] - STEP_arr[i])
+        pok += (data[1][i] - POK_arr[i]) * (data[1][i] - POK_arr[i])
+        kvadr += (data[1][i] - KVADR_arr[i]) * (data[1][i] - KVADR_arr[i])
+
+    razdel()
+    print("МНК", msq)
+    print("Степ", step)
+    print("Показ", pok)
+    print("Квадр", kvadr)
+    # print(min(msq, step, pok, kvadr))
 
 
 def razdel():
@@ -189,6 +204,5 @@ MSQ_arr = MSQ(data[0], data[1])
 STEP_arr = STEP(data[0], data[1])
 POK_arr = POK(data[0], data[1])
 KVADR_arr = KVADR(data[0], data[1])
+best(data, MSQ_arr, STEP_arr, POK_arr, KVADR_arr)
 plot(data, MSQ_arr, STEP_arr, POK_arr, KVADR_arr)
-
-
