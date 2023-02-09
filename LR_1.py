@@ -17,10 +17,10 @@ def plot(data, MSQ_arr, STEP_arr, POK_arr, KVADR_arr):
 def best(data, MSQ_arr, STEP_arr, POK_arr, KVADR_arr):
     msq, step, pok, kvadr = 0, 0, 0, 0
     for i in range(0, len(data[0])):
-        msq += (data[1][i] - MSQ_arr[i]) * (data[1][i] - MSQ_arr[i])
-        step += (data[1][i] - STEP_arr[i]) * (data[1][i] - STEP_arr[i])
-        pok += (data[1][i] - POK_arr[i]) * (data[1][i] - POK_arr[i])
-        kvadr += (data[1][i] - KVADR_arr[i]) * (data[1][i] - KVADR_arr[i])
+        msq += round((data[1][i] - MSQ_arr[i]) * (data[1][i] - MSQ_arr[i]), 2)
+        step += round((data[1][i] - STEP_arr[i]) * (data[1][i] - STEP_arr[i]), 2)
+        pok += round((data[1][i] - POK_arr[i]) * (data[1][i] - POK_arr[i]), 2)
+        kvadr += round((data[1][i] - KVADR_arr[i]) * (data[1][i] - KVADR_arr[i]), 2)
 
     razdel()
     print("МНК", msq)
@@ -51,6 +51,7 @@ def MSQ(arrX, arrY):
         sumXY += arrX[i] * arrY[i]
 
     razdel()
+    print("МНК")
     print(sumX, sumY, sumX2, sumXY)
     arr1 = [sumX2, sumX]
     arr2 = [sumX, n]
@@ -70,7 +71,7 @@ def MSQ(arrX, arrY):
     MSQ_Array_Y = []
     for i in range(0, n):
         newY = a * arrX[i] + b
-        MSQ_Array_Y.append(newY)
+        MSQ_Array_Y.append(round(newY, 2))
 
     print(MSQ_Array_Y)
     razdel()
@@ -87,6 +88,7 @@ def STEP(arrX, arrY):
         sumXY += math.log(arrX[i]) * math.log(arrY[i])
 
     razdel()
+    print("СТЕП")
     print(sumX, sumY, sumX2, sumXY)
     arr1 = [sumX2, sumX]
     arr2 = [sumX, n]
@@ -104,13 +106,13 @@ def STEP(arrX, arrY):
     print(a)
     print(b)
 
-    beta = math.e ** b
+    beta = round(math.e ** b, 2)
     print(beta)
 
     STEP_Array_Y = []
     for i in range(0, n):
         newY = beta * (arrX[i] ** a)
-        STEP_Array_Y.append(newY)
+        STEP_Array_Y.append(round(newY, 2))
 
     print(STEP_Array_Y)
     razdel()
@@ -126,6 +128,7 @@ def POK(arrX, arrY):
         sumXY += arrX[i] * math.log(arrY[i])
 
     razdel()
+    print("ПОК")
     print(sumX, sumY, sumX2, sumXY)
     arr1 = [sumX2, sumX]
     arr2 = [sumX, n]
@@ -143,13 +146,13 @@ def POK(arrX, arrY):
     print(a)
     print(b)
 
-    beta = math.e ** b
+    beta = round(math.e ** b, 2)
     print(beta)
 
     POK_Array_Y = []
     for i in range(0, n):
         newY = beta * (math.e ** (a * arrX[i]))
-        POK_Array_Y.append(newY)
+        POK_Array_Y.append(round(newY, 2))
 
     print(POK_Array_Y)
     razdel()
@@ -168,6 +171,7 @@ def KVADR(arrX, arrY):
         sumY += arrY[i]
 
     razdel()
+    print("КВАДР")
     print(sumX4, sumX3, sumX2, sumX, sumX2Y, sumXY, sumY)
     arr1 = [sumX4, sumX3, sumX2]
     arr2 = [sumX3, sumX2, sumX]
@@ -193,7 +197,7 @@ def KVADR(arrX, arrY):
     KVADR = []
     for i in range(0, n):
         newY = a * pow(arrX[i], 2) + b * arrX[i] + c
-        KVADR.append(newY)
+        KVADR.append(round(newY, 2))
 
     print(KVADR)
     razdel()
