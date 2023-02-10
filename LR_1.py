@@ -22,12 +22,13 @@ def best(data, MSQ_arr, STEP_arr, POK_arr, KVADR_arr):
         pok += round((data[1][i] - POK_arr[i]) * (data[1][i] - POK_arr[i]), 2)
         kvadr += round((data[1][i] - KVADR_arr[i]) * (data[1][i] - KVADR_arr[i]), 2)
 
+    D = {'МНК': msq, 'Степенная': step, 'Показательня': pok, 'Квадратаричная': kvadr}
     razdel()
     print("МНК", msq)
     print("Степ", step)
     print("Показ", pok)
     print("Квадр", kvadr)
-    # print(min(msq, step, pok, kvadr))
+    print("Наилучшая функция - это ", min(D))
 
 
 def razdel():
@@ -66,8 +67,9 @@ def MSQ(arrX, arrY):
     print(round(det2, 4))
     a = round((det1 / mainDet), 2)
     b = round((det2 / mainDet), 2)
-    print(a)
-    print(b)
+    print("a=", a)
+    print("b=", b)
+
     MSQ_Array_Y = []
     for i in range(0, n):
         newY = a * arrX[i] + b
@@ -103,8 +105,8 @@ def STEP(arrX, arrY):
     print(round(det2, 4))
     a = round((det1 / mainDet), 2)
     b = round((det2 / mainDet), 2)
-    print(a)
-    print(b)
+    print("a=", a)
+    print("b=", b)
 
     beta = round(math.e ** b, 2)
     print(beta)
@@ -143,8 +145,8 @@ def POK(arrX, arrY):
     print(round(det2, 4))
     a = round((det1 / mainDet), 2)
     b = round((det2 / mainDet), 2)
-    print(a)
-    print(b)
+    print("a=", a)
+    print("b=", b)
 
     beta = round(math.e ** b, 2)
     print(beta)
@@ -190,9 +192,9 @@ def KVADR(arrX, arrY):
     a = round((det1 / mainDet), 2)
     b = round((det2 / mainDet), 2)
     c = round((det3 / mainDet), 2)
-    print(a)
-    print(b)
-    print(c)
+    print("a=", a)
+    print("b=", b)
+    print("c=", c)
 
     KVADR = []
     for i in range(0, n):
